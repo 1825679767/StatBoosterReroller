@@ -20,7 +20,7 @@ bool StatBoosterRerollPlayerScript::CanCastItemUseSpell(Player* player, Item* it
 
     if (!sConfigMgr->GetOption<bool>("StatBoostReroll.Enable", false))
     {
-        ChatHandler(player->GetSession()).SendSysMessage("This item is disabled.");
+        ChatHandler(player->GetSession()).SendSysMessage("此项目已禁用.");
         return false;
     }
 
@@ -33,7 +33,7 @@ bool StatBoosterRerollPlayerScript::CanCastItemUseSpell(Player* player, Item* it
     if (sConfigMgr->GetOption<bool>("StatBoostReroll.AllowOwnedItemsOnly", true) &&
         targetItem->GetOwner()->GetGUID() != player->GetGUID())
     {
-        ChatHandler(player->GetSession()).SendSysMessage("You cannot re-roll items other than your own.");
+        ChatHandler(player->GetSession()).SendSysMessage("你不能重置别人的物品.");
         return false;
     }
 
@@ -47,7 +47,7 @@ bool StatBoosterRerollPlayerScript::CanCastItemUseSpell(Player* player, Item* it
     }
     else
     {
-        ChatHandler(player->GetSession()).SendSysMessage("You cannot re-roll this item.");
+        ChatHandler(player->GetSession()).SendSysMessage("你不能重置这件物品.");
     }
 
     return false;
